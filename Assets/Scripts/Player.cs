@@ -10,15 +10,10 @@ public class Player : MonoBehaviour
     //movement vector
     Vector2 move;
 
+    InputAction.CallbackContext useMe;
     //Find rigidBody
     public Rigidbody2D rb;
 
-    InputAction.CallbackContext useMe;
-    public void Jump()
-    {
-        Debug.Log("Jumped?");
-        move = Vector2.up;
-    }
     public void Move(InputAction.CallbackContext context)
     {
         if (context.started || context.canceled)
@@ -32,8 +27,14 @@ public class Player : MonoBehaviour
     //Runs the code every time unity updates
     public void Update()
     {
-        if (moving) {direction(useMe);}
-        else {move = Vector2.zero; Debug.Log("Speed: "+move); direction(useMe);}
+        try
+        {
+            if (moving) {direction(useMe);}
+        }
+        catch
+        {
+            Debug.LogError("Error code I guess(prolly no key being)");
+        }
     }
     private void direction(InputAction.CallbackContext useMe)
     {
