@@ -23,5 +23,4 @@ public class EnemyScript : MonoBehaviour
         rb.MovePosition(rb.position + _movementDelta * Time.fixedDeltaTime);
         rb.SetRotation(_rotation);
     }
-    
 }

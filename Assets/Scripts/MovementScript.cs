@@ -29,7 +29,7 @@ public class MovementScript : MonoBehaviour
     void Update()
     {
         moveVector = _moveAction.ReadValue<Vector2>();
-        Debug.Log("ah: "+moveVector);
+        //Debug.Log("ah: "+moveVector);
 
         rb.AddForce(moveVector * speed * Time.deltaTime);
     }
