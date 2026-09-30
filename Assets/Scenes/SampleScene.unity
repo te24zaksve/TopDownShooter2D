@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementScript
   speed: 4000
+  force: {x: 0, y: 0}
 --- !u!1 &313267689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2758784264698546770, guid: e4f0e35f04a13eb46bca16ed4e282876, type: 3}
@@ -616,6 +617,8 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 1317209012}
   reloadTime: 0.1
   bulletSpeed: 10
+  movementScript: {fileID: 47701980}
+  player: {fileID: 47701974}
 --- !u!1 &1317209011
 GameObject:
   m_ObjectHideFlags: 0

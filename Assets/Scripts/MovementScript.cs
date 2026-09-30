@@ -12,6 +12,9 @@ public class MovementScript : MonoBehaviour
 
     //Vector
     Vector2 moveVector;
+    public Vector2 force = Vector2.zero;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,6 +34,8 @@ public class MovementScript : MonoBehaviour
         moveVector = _moveAction.ReadValue<Vector2>();
         //Debug.Log("ah: "+moveVector);
 
-        rb.AddForce(moveVector * speed * Time.deltaTime);
+        //Using this convoluted code so that Force can be used in the bullet script. 
+        force = (moveVector * speed * Time.deltaTime);
+        rb.AddForce(force);
     }
 }

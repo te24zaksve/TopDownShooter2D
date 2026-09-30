@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,11 +23,23 @@ public class BulletSpawnScript : MonoBehaviour
     [SerializeField] float reloadTime = 1;
     [SerializeField] float bulletSpeed = 1;
 
+    public MovementScript movementScript;
+    public GameObject player;
+
+    private Vector2 add;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //Asign Actions to Actionmaps
         _shootAction = InputSystem.actions["Player/Shoot"];
+
+        movementScript = player.GetComponent<MovementScript>();
+        
+        Debug.Log("ABBA: "+ movementScript.force);
+
     }
 
     // Update is called once per frame
@@ -66,7 +79,9 @@ public class BulletSpawnScript : MonoBehaviour
         {
             Rigidbody2D clone;
             clone = Instantiate(prefabRb, BulletSpawnPoint.position, transform.rotation);
-            clone.linearVelocity = transform.TransformDirection(Vector2.right * bulletSpeed);
+            add = movementScript.force;
+            //Vector2 positive = new Vector2(Mathf.Abs(add.x), Mathf.Abs(add.y));
+            clone.linearVelocity = transform.TransformDirection((Vector2.right * bulletSpeed) + add);
             fireBullet = false;
             Invoke("TimeDelay", 1f * reloadTime);
         }
