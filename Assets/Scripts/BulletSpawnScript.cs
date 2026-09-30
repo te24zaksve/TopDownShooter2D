@@ -81,7 +81,7 @@ public class BulletSpawnScript : MonoBehaviour
             clone = Instantiate(prefabRb, BulletSpawnPoint.position, transform.rotation);
             add = movementScript.force;
             //Vector2 positive = new Vector2(Mathf.Abs(add.x), Mathf.Abs(add.y));
-            clone.linearVelocity = transform.TransformDirection((Vector2.right * bulletSpeed) + add);
+            clone.linearVelocity = transform.TransformDirection(Vector2.right * bulletSpeed);
             fireBullet = false;
             Invoke("TimeDelay", 1f * reloadTime);
         }

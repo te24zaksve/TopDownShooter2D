@@ -36,15 +36,15 @@ public class EnemyScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D gotHit)
     {
-        Debug.Log("Enemy Got hit by" + gotHit.tag + ", Enemy health: " + enemyHealth);
+        //Debug.Log("Enemy Got hit by" + gotHit.tag + ", Enemy health: " + enemyHealth);
 
         if (gotHit.gameObject.CompareTag("Projectile"))
         {
             enemyHealth -= 1;
-            Debug.Log("EnemySelf got hurt" + enemyHealth);
+            //Debug.Log("EnemySelf got hurt" + enemyHealth);
             if (enemyHealth <= 0) 
             {
-                Debug.Log("DIED");
+                //Debug.Log("DIED");
                 Destroy(gameObject);
             }
         }
