@@ -12,10 +12,10 @@ public class TextHealthScript : MonoBehaviour
 
     void Start()
     {
-        //Get the TextMeshPro component
+        //Get the TextMeshPro component to change text component
         hpText = GetComponent<TextMeshProUGUI>();
 
-        //get the PlayerHealthScrip component
+        //get the PlayerHealthScrip component for health variable
         healthScrip = FindFirstObjectByType<PlayerHealthScrip>();
     }
 
