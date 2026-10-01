@@ -33,12 +33,10 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Get vector value from action
-        moveVector = _moveAction.ReadValue<Vector2>();
-            //Debug.Log("ah: "+moveVector);
+        //Get vector value from action and add force to player RigidBody
 
-        //Using this convoluted code so that Force can be used in the bullet script. 
-        force = (moveVector * speed * Time.deltaTime);
-        rb.AddForce(force);
+        moveVector = _moveAction.ReadValue<Vector2>();
+        //Debug.Log("ah: "+moveVector);
+        rb.AddForce(moveVector * speed * Time.deltaTime);
     }
 }

@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class EnemySpawnScript : MonoBehaviour
 {
-
+    //components
     public Rigidbody2D prefabRb;
     public Transform enemySpawnPoint;
     public bool spawnEnemy = true;
 
+    //variables
     private float time = 0;
     private float wait = 5;
-    private int seconds = 1;
-
     private int spawnAmount = 1;
 
 
@@ -20,6 +19,7 @@ public class EnemySpawnScript : MonoBehaviour
         //sets up a timer
         time += Time.deltaTime;
 
+        //Check if and how many enemies should spawn
         if (spawnEnemy)
         {
             spawnEnemy = false;
@@ -45,6 +45,7 @@ public class EnemySpawnScript : MonoBehaviour
     }
     void SpawnEnemy()
     {
+        //Spawn the enemy
         Rigidbody2D clone;
         clone = Instantiate(prefabRb, enemySpawnPoint.position, transform.rotation);
         clone.linearVelocity = transform.TransformDirection(Vector2.zero);

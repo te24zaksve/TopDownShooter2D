@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class AimScript : MonoBehaviour
 {
-
     //AIM
     //To Find position 
     [SerializeReference]private Camera mainCam;
@@ -18,13 +17,6 @@ public class AimScript : MonoBehaviour
     //The rotation calculation
     private float rotZ;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -35,7 +27,5 @@ public class AimScript : MonoBehaviour
         var rotation = ((Vector3)mousePos - transform.position).normalized;
         rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         rotPoint.rotation = Quaternion.Euler(0f, 0f, rotZ);
-
     }
-
 }

@@ -5,6 +5,8 @@ public class TextHealthScript : MonoBehaviour
 {
     // Variables
     public float healthNumber;
+
+    //components
     private TextMeshProUGUI hpText;
     private PlayerHealthScrip healthScrip;
 

@@ -20,33 +20,17 @@ public class BulletSpawnScript : MonoBehaviour
     [SerializeField] float reloadTime = 1;
     [SerializeField] float bulletSpeed = 1;
 
-    //To add force to bullet
-    public MovementScript movementScript;
-    public GameObject player;
-    private Vector2 add;
-
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //Asign Actions to Actionmaps
         _shootAction = InputSystem.actions["Player/Shoot"];
-
-        movementScript = player.GetComponent<MovementScript>();
-        Debug.Log("ABBA: "+ movementScript.force);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Run through Shoot void
-        Shoot();
-    }
-
-    void Shoot()
-    {
+        //Check if the shoot button is being held down
 
         //Debug.Log("Allowed to shoot: "+ allowedToShoot);
         if (allowedToShoot)
@@ -69,13 +53,14 @@ public class BulletSpawnScript : MonoBehaviour
             return;
         }
     }
+
     void Shooting()
     {
+        //Spawns a bullet based on reload time.
         if (fireBullet)
         {
             Rigidbody2D clone;
             clone = Instantiate(prefabRb, BulletSpawnPoint.position, transform.rotation);
-            add = movementScript.force;
             //Vector2 positive = new Vector2(Mathf.Abs(add.x), Mathf.Abs(add.y));
             clone.linearVelocity = transform.TransformDirection(Vector2.right * bulletSpeed);
             fireBullet = false;
