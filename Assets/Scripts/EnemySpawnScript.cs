@@ -12,13 +12,7 @@ public class EnemySpawnScript : MonoBehaviour
     private int seconds = 1;
 
     private int spawnAmount = 1;
-    private bool nextInLine = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
 
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -29,16 +23,16 @@ public class EnemySpawnScript : MonoBehaviour
         if (spawnEnemy)
         {
             spawnEnemy = false;
-            Debug.Log("spawnAmount "+spawnAmount);
+            //Debug.Log("spawnAmount "+spawnAmount);
             for (int i = 0; i < spawnAmount; i++)
             {
-                Debug.Log("loop "+i);
+                //Debug.Log("loop "+i);
                 Invoke("SpawnEnemy", i);
                 Invoke("CanSpawnEnemy", (wait-(time/5)));
             }
         }
         //Debug.Log("wait " + (wait - (time / 5)) + " seconds");
-        if ((wait - (time / 5)) <= 0)
+        if ((wait - (time / 5)) <= 0.5)
         {
             spawnAmount += 1;
             time = 0;

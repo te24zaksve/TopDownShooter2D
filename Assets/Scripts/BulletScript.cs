@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    //Variables
     [SerializeField] GameObject gameObject;
     public int seconds = 1;
     float time;
@@ -30,6 +31,7 @@ public class BulletScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D hit)
     {
+        //When colliding with a Enemy Bullet gets destroyed
         if (hit.gameObject.CompareTag("Enemy"))
         {
             //Debug.Log("Collided Enemy");

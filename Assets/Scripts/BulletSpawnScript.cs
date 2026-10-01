@@ -5,27 +5,24 @@ using UnityEngine.InputSystem;
 public class BulletSpawnScript : MonoBehaviour
 {
     //SHOOT
-    //For Activate Shooting
-    private InputAction shooting;
-
 
     //Shoot Actions
     private InputAction _shootAction;
 
     //Projectile/bullet
     public Rigidbody2D prefabRb;
-
     public Transform BulletSpawnPoint;
 
+    //Variables
     bool activeShooting = false;
     bool allowedToShoot = true;
     bool fireBullet = true;
     [SerializeField] float reloadTime = 1;
     [SerializeField] float bulletSpeed = 1;
 
+    //To add force to bullet
     public MovementScript movementScript;
     public GameObject player;
-
     private Vector2 add;
 
 
@@ -37,7 +34,6 @@ public class BulletSpawnScript : MonoBehaviour
         _shootAction = InputSystem.actions["Player/Shoot"];
 
         movementScript = player.GetComponent<MovementScript>();
-        
         Debug.Log("ABBA: "+ movementScript.force);
 
     }
